@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+</head>
+
+<style>
+    body {
+        margin: 0%;
+        padding: 0%;
+    }
+
+    .nav {
+        position: fixed;
+        /* This will fix the position */
+        top: 0;
+        /* Stick the navigation to the top of the page */
+        left: 0;
+        right: 0;
+        height: 80px;
+        width: auto;
+        background-color: rgb(247, 247, 247);
+        border: 2px solid gray;
+        box-shadow: 0px 0px 5px gray;
+        transition: 0.5s ease;
+
+        border-radius: 50px;
+        background: fixed;
+        z-index: 1000;
+    }
+
+    .nav:hover {
+        background-color: rgb(146, 78, 209);
+        box-shadow: 9px 9px 5px gray;
+        transition: 0.5s ease;
+        color: white;
+
+        .btn {
+            color: white;
+        }
+    }
+
+    .logo {
+        padding: 5px;
+        float: left;
+
+    }
+
+    .logoimg {
+        position: relative;
+        height: 70px;
+        width: auto;
+        border-radius: 50%;
+    }
+
+    .logoimg:hover {
+        border: 1px solid white;
+        transition: 0.9s ease;
+    }
+
+    .company_name {
+        padding: 15px;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        font-size: 20px;
+        float: left;
+        cursor: pointer;
+    }
+
+
+    .btn {
+        position: relative;
+        float: right;
+        padding: 28px;
+        display: flex;
+    }
+
+    .navlink {
+        display: flex;
+
+    }
+
+    .toggler {
+        display: none;
+        float: right;
+        padding: 18px;
+    }
+
+    .navlink li {
+        margin-right: 50px;
+        font-size: 20px;
+        font-weight: 800;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    .nav:hover .navlink li a {
+        color: white;
+        /* Change this to the desired color */
+    }
+
+    .slider_box {
+        width: auto;
+        height: 400px;
+        margin: 100px;
+        display: flex;
+        border-radius: 50px;
+    }
+
+    .img_box {
+        height: 350px;
+        width: 30%;
+        border: 2px solid black;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 50px;
+    }
+
+    .img_box:hover {
+        box-shadow: 10px 22px 10px gray;
+        cursor: pointer;
+    }
+
+    marquee {
+
+        margin-top: 100px;
+
+    }
+
+    .slider_img {
+        height: 40vh;
+        width: 20vw;
+        border-radius: 50px;
+    }
+
+    .offer_title {
+        font-size: 45px;
+    }
+
+    .offer_outer {
+        height: auto;
+        width: 97vw;
+        display: flex;
+    }
+
+    .offer_contain:hover {
+        box-shadow: 2px 10px 10px gray;
+    }
+
+    .offer_contain {
+        height: 54vh;
+        width: 30vw;
+        border-radius: 50px;
+        border: 2px solid black;
+        margin: 15px;
+
+    }
+
+    .offer_img {
+        height: 45vh;
+        width: 25vw;
+        border-radius: 50px;
+
+    }
+
+    #discount {
+        font-size: 25px;
+    }
+
+    .buy {
+        background-color: blue;
+        padding: 15px;
+        border-radius: 50px;
+        color: white;
+        font-size: 15px;
+        margin: 5px;
+        border: 2px solid black;
+    }
+
+    .buy:hover {
+        color: black;
+        background-color: white;
+        box-shadow: 2px 2px 10px gray;
+        cursor: pointer;
+    }
+
+    .products {
+        height: auto;
+        width: 90vw;
+        margin: 30px;
+        margin-top: 200px;
+    }
+
+    .product_box {
+        margin: 15px;
+
+    }
+
+    .product_title {
+        font-size: 40px;
+
+        text-shadow: 0px 0px 20px rgb(207, 121, 121);
+    }
+
+    .sub_product_title {
+        font-size: 55px;
+        color: rgb(255, 255, 255);
+        text-shadow: 0px 0px 20px black;
+
+    }
+
+    .product_img {
+        height: 30vh;
+        border: 2px solid black;
+        border-top-right-radius: 40px;
+        border-bottom-left-radius: 30px;
+        transition: 1s ease;
+    }
+
+    .product_img:hover {
+        border-radius: 50px;
+        box-shadow: 22px 0px 10px gray;
+        transition: 1s ease;
+    }
+
+    .name {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 20px;
+        padding: 5px;
+        margin: 5px;
+    }
+
+    .price_buy {
+        background-color: rgb(46, 201, 90);
+        color: white;
+        padding: 30px;
+        padding-block: 20px;
+        border-radius: 40px;
+        font-size: 20px;
+        transition: 1s ease;
+    }
+
+    .price_buy:hover {
+        box-shadow: 18px 0px 10px rgb(98, 255, 0);
+        transition: 1s ease;
+    }
+
+    .probox_container {
+        display: grid; /* Enable grid layout */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+            grid-gap: 15px; /* Space between grid items */
+        padding: 30px;
+        margin-top: 40px;
+    }
+    .full_box
+    {
+        margin-top:50px;
+    }
+    #home,#offer,#product {
+    scroll-margin-top: 100px; /* Adjusts the scroll position by 50px */
+}
+
+    @media (max-width: 768px) {
+        .probox_container {
+        flex-direction: column;
+        padding: 30px;
+        margin-top: 40px;
+    }
+        .offer_outer {
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            display: block;
+            width: 100vw;
+        }
+
+        .offer_sec {
+            justify-items: center;
+        }
+
+        .offer_contain {
+            height: 60vh;
+            width: 50vw;
+            border-radius: 50px;
+            border: 2px solid black;
+            margin: 15px;
+
+        }
+
+        .offer_img {
+            height: 45vh;
+            width: 35vw;
+            border-radius: 50px;
+
+        }
+
+        .nav {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .navlink {
+            flex-direction: column;
+            width: 10vw;
+
+
+        }
+
+        .navlink li {
+            margin-bottom: 65px;
+            padding: 10px;
+        }
+
+        .navlink li {
+            color: blue;
+        }
+
+        .btn {
+            display: none;
+            height: 400px;
+            width: 100%;
+            float: right;
+            right: 0;
+            position: absolute;
+            background-color: rgb(237, 228, 228);
+            margin-top: 100px;
+            z-index: 9;
+
+        }
+
+        .toggler {
+            display: block;
+        }
+
+        .img_box:first-child {
+            display: none;
+        }
+
+        .img_box:last-child {
+            display: none;
+        }
+
+        .img_box,
+        .slider_img {
+            margin-left: 10px;
+            min-width: 220px;
+
+        }
+
+    }
+
+    @media (max-width:600px) {
+        .offer_contain {
+            height: 60vh;
+            width: 60vw;
+            border-radius: 50px;
+            border: 2px solid black;
+            margin: 15px;
+
+        }
+
+        .offer_img {
+            height: 45vh;
+            width: 55vw;
+            border-radius: 50px;
+
+        }
+    }
+
+    @media (max-width:400px) {
+        .company_name {
+            display: none;
+        }
+
+        .offer_contain {
+            height: 60vh;
+            width: 80vw;
+            border-radius: 50px;
+            border: 2px solid black;
+            margin: 15px;
+
+        }
+
+        .offer_img {
+            height: 45vh;
+            width: 75vw;
+            border-radius: 50px;
+
+        }
+    }
+</style>
+
+<body>
+    <center>
+
+        <!-- navigation bar -->
+        <div class="nav">
+            <div class="logo"><a href="#"><img class="logoimg"
+                        src="https://th.bing.com/th?id=OIP.TCMG_wJtzjwiB8uARp2HywHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"></a>
+            </div>
+            <div class="company_name">
+                <p>Krishna<br>Dairy</p>
+            </div>
+
+
+
+            <div class="btn" id="nav">
+                <ul class="navlink">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#offer">Offers</a></li>
+                    <li><a href="#product">Products</a></li>
+                    <li><a href="#contact">Info</a></li>
+                </ul>
+            </div>
+
+            <div class="toggler" id="toggler">
+                <a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
+                        fill="#baj">
+                        <path
+                            d="M120-240v-66.67h720V-240H120Zm0-206.67v-66.66h720v66.66H120Zm0-206.66V-720h720v66.67H120Z" />
+                    </svg></a>
+            </div>
+        </div>
+
+        <section class="slider" id="home">
+            <!-- Products slider -->
+            <marquee behavior="scroll" direction="left" scrollamount="20">
+                <div class="slider_box">
+                    <div class="img_box">
+                        <img class="slider_img"
+                            src="https://th.bing.com/th/id/R.f1476957a276f4c3ebe0e1a977cac0ac?rik=YNPV5SvWPaiQnQ&riu=http%3a%2f%2fwww.ayufarms.com%2fwp-content%2fuploads%2f2018%2f08%2fayufarms-milk-toned-milk-300x300.png&ehk=QZQf8DVic%2fzLcysGxoic1PHjeKrqE%2bhtQCn4tiLY3mU%3d&risl=&pid=ImgRaw&r=0">
+                    </div>
+                    <div class="img_box">
+                        <img class="slider_img"
+                            src="https://th.bing.com/th/id/OIP.j1fXLA2LOuot9peT8h1vEQHaHa?rs=1&pid=ImgDetMain">
+                    </div>
+                    <div class="img_box">
+                        <img class="slider_img"
+                            src="https://th.bing.com/th/id/OIP.NVHvU2AjTZrsTHoEWI2tRgAAAA?w=300&h=300&rs=1&pid=ImgDetMain">
+                    </div>
+                    <div class="img_box">
+                        <img class="slider_img"
+                            src="https://th.bing.com/th/id/OIP.tDHXO4Pvbv7ZR80hKKqUEwHaG8?rs=1&pid=ImgDetMain">
+                    </div>
+                    <div class="img_box">
+                        <img class="slider_img"
+                            src="https://th.bing.com/th/id/OIP.4H9kAk-nQB2Pf6BphNqzNwHaG8?rs=1&pid=ImgDetMain">
+                    </div>
+                    <div class="img_box">
+                        <img class="slider_img"
+                            src="https://th.bing.com/th/id/OIP.fHLhP5Qxr_vMj5dw6Jt8owHaHa?w=197&h=197&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+                    </div>
+                </div>
+            </marquee>
+            <hr>
+
+            <marquee behavior="scroll" direction="right" scrollamount="20">
+                <div class="slider_box">
+                    <div class="img_box">
+                        <img class="slider_img"
+                            src="https://th.bing.com/th/id/OIP.AKeMTDmwk_Pm643O4Tw8BgHaG_?w=224&h=212&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+                    </div>
+                    <div class="img_box">
+                        <img class="slider_img"
+                            src="https://th.bing.com/th/id/OIP.KQ80oEMFDPoIv6kzunFCeAHaHa?w=172&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+                    </div>
+                    <div class="img_box">
+                        <img class="slider_img"
+                            src="https://th.bing.com/th/id/OIP.b-tgqUxn7KSs6QseCPCkpQHaG8?w=183&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+                    </div>
+                    <div class="img_box">
+                        <img class="slider_img"
+                            src="https://th.bing.com/th/id/OIP.r7qbkedNenrkeQ_zTRyM5QHaG2?w=199&h=197&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+                    </div>
+                    <div class="img_box">
+                        <img class="slider_img"
+                            src="data:image/jpeg;base64,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">
+                    </div>
+                    <div class="img_box">
+                        <img class="slider_img"
+                            src="https://th.bing.com/th/id/OIP._MoFEstFF5liBuQsBJhDhwHaG8?w=210&h=197&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+                    </div>
+                </div>
+            </marquee>
+        </section>
+
+        <section class="offer_sec" id="offer">
+            <h1 class="offer_title">Latest Offers & Discounts</h1>
+            <div class="offer_outer">
+
+                <!-- card-1 -->
+                <div class="offer_contain">
+                    <div>
+                        <img class="offer_img"
+                            src="https://th.bing.com/th/id/OIP.fHLhP5Qxr_vMj5dw6Jt8owHaHa?w=197&h=197&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+                        <p id="discount" style="color: rgb(0, 0, 0); font-weight: 800;">Discount: <span
+                                style="color: rgb(255, 0, 0);"> 30%</span> off</p>
+                        <button class="buy">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- card-2 -->
+                <div class="offer_contain">
+                    <div>
+                        <img class="offer_img"
+                            src="https://www.ayufarms.com/wp-content/uploads/2021/07/ayufarms-chhach-jaljeera-200ml-300x300.png">
+                        <p id="discount" style="color: rgb(0, 0, 0); font-weight: 800;">Discount: <span
+                                style="color: rgb(255, 0, 0);"> 50%</span> off</p>
+                        <button class="buy">Buy Now</button>
+                    </div>
+                </div>
+
+                <!-- card-3 -->
+                <div class="offer_contain">
+                    <div>
+                        <img class="offer_img"
+                            src="https://www.ayufarms.com/wp-content/uploads/2018/08/ayufarms-dahi-fresh-dahi-15kg-300x300.png">
+                        <p id="discount" style="color: rgb(0, 0, 0); font-weight: 800;">Discount: <span
+                                style="color: rgb(255, 0, 0);"> 80%</span> off</p>
+                        <button class="buy">Buy Now</button>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </section>
+
+        <section class="products" id="product">
+            <h1 class="product_title">Our Ranges of Products</h1>
+            <img style="height:70vh; width:90vw; border: 2px solid black; margin-bottom:50px;"
+                src="https://th.bing.com/th/id/R.1747d2a2a0b404218dd6eb4a431ed2aa?rik=tShNTo9UmoDuWA&riu=http%3a%2f%2fwww.ayufarms.com%2fwp-content%2fuploads%2f2017%2f06%2fBanner-1.jpg&ehk=O5oiKP4qBYKAf156zWDYPsT11m0wHeg2rapO6GaGa8Y%3d&risl=&pid=ImgRaw&r=0">
+            <div class="full_box">
+            <center><h2 class="sub_product_title">Milk</h2></center>   
+                <div class="probox_container">
+                    <div class="product_box">
+                        <img class="product_img"
+                            src="https://www.ayufarms.com/wp-content/uploads/2018/08/Untitled-design-17-300x300.png">
+                        <p class="name">Pasteurised Full Cream</p>
+                        <button class="price_buy">@ 20 RS</button>
+                    </div>
+
+                    <div class="product_box">
+                        <img class="product_img"
+                            src="https://www.ayufarms.com/wp-content/uploads/2018/08/ayufarms-milk-toned-milk-768x720.png">
+                        <p class="name">Pasteurised Toned milk</p>
+                        <button class="price_buy">@ 40 RS</button>
+                    </div>
+
+                    <div class="product_box">
+                        <img class="product_img"
+                            src="https://www.ayufarms.com/wp-content/uploads/2018/08/ayufarms-milk-tea-special-2-768x720.png">
+                        <p class="name">Tea Special milk</p>
+                        <button class="price_buy">@ 25 RS</button>
+                    </div>
+
+                    <div class="product_box">
+                        <img class="product_img"
+                            src="https://www.ayufarms.com/wp-content/uploads/2018/11/ayufarms-milk-family-milk-500ml-300x300.png">
+                        <p class="name">Family milk</p>
+                        <button class="price_buy">@ 50 RS</button>
+                    </div>
+
+
+                    <div class="product_box">
+                        <img class="product_img"
+                            src="https://www.ayufarms.com/wp-content/uploads/2018/08/ayufarms-milk-cow-milk-768x720.png">
+                        <p class="name">Cow milk</p>
+                        <button class="price_buy">@ 18 RS</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="full_box">
+                <center><h2 class="sub_product_title">Ice Cream</h2></center>
+                <div class="probox_container">
+                    <div class="product_box">
+                        <img class="product_img"
+                            src="https://www.ayufarms.com/wp-content/uploads/2022/03/Cone_1-300x300.png">
+                        <p class="name">Butterscotch Ice cream</p>
+                        <button class="price_buy">@ 20 RS</button>
+                    </div>
+
+                    <div class="product_box">
+                        <img class="product_img"
+                            src="https://www.ayufarms.com/wp-content/uploads/2022/03/Vanilla-Pack-300x300.png">
+                        <p class="name">Vanilla Ice Cream pack</p>
+                        <button class="price_buy">@ 40 RS</button>
+                    </div>
+
+                    <div class="product_box">
+                        <img class="product_img"
+                            src="https://www.ayufarms.com/wp-content/uploads/2022/03/Strawberry-Pack-300x300.png">
+                        <p class="name">Strawberry Ice Cream pack</p>
+                        <button class="price_buy">@ 25 RS</button>
+                    </div>
+
+                    <div class="product_box">
+                        <img class="product_img"
+                            src="https://www.ayufarms.com/wp-content/uploads/2022/03/Vanilla-Pack-300x300.png">
+                        <p class="name">Keshar Pista pack</p>
+                        <button class="price_buy">@ 50 RS</button>
+                    </div>
+
+
+                    <div class="product_box">
+                        <img class="product_img"
+                            src="https://www.ayufarms.com/wp-content/uploads/2022/03/Family-pack-4ltr-300x300.png">
+                        <p class="name">Family Ice Cream</p>
+                        <button class="price_buy">@ 18 RS</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="full_box">
+                <center><h2 class="sub_product_title">Flavored Milk</h2></center>
+                <div class="probox_container">
+                    <div class="product_box">
+                        <img class="product_img"
+                            src="https://www.ayufarms.com/wp-content/uploads/2022/03/2-300x300.png">
+                        <p class="name">Badam Flavored</p>
+                        <button class="price_buy">@ 20 RS</button>
+                    </div>
+
+                    <div class="product_box">
+                        <img class="product_img"
+                            src="https://www.ayufarms.com/wp-content/uploads/2022/03/6-300x300.png">
+                        <p class="name">Butterscotch Flavored</p>
+                        <button class="price_buy">@ 40 RS</button>
+                    </div>
+
+                    <div class="product_box">
+                        <img class="product_img"
+                            src="https://www.ayufarms.com/wp-content/uploads/2022/03/3-300x300.png">
+                        <p class="name">Chocolate Flavored</p>
+                        <button class="price_buy">@ 25 RS</button>
+                    </div>
+
+                    <div class="product_box">
+                        <img class="product_img"
+                            src="https://www.ayufarms.com/wp-content/uploads/2022/03/1-300x300.png">
+                        <p class="name">Strawberry Flavored</p>
+                        <button class="price_buy">@ 50 RS</button>
+                    </div>
+
+
+                    <div class="product_box">
+                        <img class="product_img"
+                            src="https://www.ayufarms.com/wp-content/uploads/2022/03/4-300x300.png">
+                        <p class="name">Elaichi Flavored</p>
+                        <button class="price_buy">@ 18 RS</button>
+                    </div>
+            </div>
+        </section>
+
+        <footer id="contact" style="height:1vh; background-color: azure; padding:50px;">
+            <p><a href="https://www.ayufarms.com/">&copy; 2022 Krishna Dairy in collaboration with Ayu Farms</a></p>
+        </footer>
+    </center>
+
+</body>
+<script>
+    document.getElementById("toggler").addEventListener("click", function () {
+        let a = document.getElementById("nav").style.display
+        if (a == "none") {
+            document.getElementById("nav").style.display = "block";
+        }
+        else {
+            document.getElementById("nav").style.display = "none";
+        }
+    });
+
+
+
+</script>
+
+</html>
